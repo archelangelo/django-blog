@@ -14,18 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-import views
+from . import views
 
 urlpatterns = [
     path('', views.PostListView.as_view(), name='post_list'),
-    path('about', views.AboutViews.as_view(), 'about'),
-    path('post/<int:pk>', views.PostDetailView.as_view(), 'post'),
-    path('poster/', views.CreatePostView.as_view(), 'poster'),
-    path('post/<int:pk>/edit', views.PostUpdateView.as_view(), 'post_edit'),
-    path('post/<int:pk>/delete', views.PostDeleteView.as_view(), 'post_delete'),
-    path('drafts/', views.DraftListView.as_view(), 'draft_list'),
-    path('post/<int:pk>/comment', views.add_comment_to_post, 'add_comment_to_post'),
-    path('comment/<int:pk>/approve', views.approve_comment, 'approve_comment'),
-    path('comment/<int:pk>/delete', views.delete_comment, 'delete_comment'),
-    path('post/<int:pk>/publish', views.post_publish, 'publish_comment'),
+    path('about', views.AboutView.as_view(), name='about'),
+    path('post/<int:pk>', views.PostDetailView.as_view(), name='post'),
+    path('poster/', views.CreatePostView.as_view(), name='poster'),
+    path('post/<int:pk>/edit', views.PostUpdateView.as_view(), name='post_edit'),
+    path('post/<int:pk>/delete', views.PostDeleteView.as_view(), name='post_delete'),
+    path('drafts/', views.DraftListView.as_view(), name='draft_list'),
+    path('post/<int:pk>/comment', views.add_comment_to_post, name='add_comment_to_post'),
+    path('comment/<int:pk>/approve', views.approve_comment, name='approve_comment'),
+    path('comment/<int:pk>/delete', views.delete_comment, name='delete_comment'),
+    path('post/<int:pk>/publish', views.post_publish, name='publish_comment'),
 ]
