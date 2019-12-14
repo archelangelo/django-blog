@@ -33,26 +33,26 @@
           <li><a href="https://www.linkedin.com">Linkedin</a></li>
         </ul>
         {% if user.is_authenticated %}
-        <ul>
-          <li>
-            <a href="{% url 'poster' %}">New Post</a>
-          </li>
-          <li>
-              <a href="{% url 'draft_list' %}">Drafts</a>
-          </li>
-          <li>
-              <a href="{% url 'logout' %}">Log Out</a>
-          </li>
-        </ul>
-        <span class="navbar-text">
-          Welcome {{ user.username }}
-        </span>
+          <ul>
+            <li>
+              <a href="{% url 'poster' %}">New Post</a>
+            </li>
+            <li>
+                <a href="{% url 'draft_list' %}">Drafts</a>
+            </li>
+            <li>
+                <a href="{% url 'logout' %}">Log Out</a>
+            </li>
+          </ul>
+          <span class="navbar-text">
+            Welcome {{ user.username }}
+          </span>
         {% else %}
-        <ul>
-          <li>
-            <a href="{% url 'login' %}"><span class="glyphicon glyphycon-user"></span></a>
-          </li>
-        </ul>
+          <ul>
+            <li>
+              <a href="{% url 'login' %}"><span class="glyphicon glyphycon-user"></span></a>
+            </li>
+          </ul>
         {% endif %}
       </div>
     </nav>
